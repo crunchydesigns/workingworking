@@ -8,6 +8,13 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
     <style>
+       /* 카메라 피드의 줌을 조절 */
+       video {
+            transform: scale(0.4); /* 카메라 영상 크기 줄이기 */
+            width: 50%;
+            height: 100%;
+            object-fit: cover; /* 화면에 맞추기 */
+        }
       body { margin: 0; overflow: hidden; }
       canvas { display: block; }
     </style>
@@ -15,7 +22,7 @@
   <body>
     <a-scene embedded arjs>
       <!-- Hiro Marker -->
-      <a-marker preset="hiro">
+      <a-marker preset="hiro" size="2">
         <!-- 2D 텍스트 객체 -->
         <a-text
           value="Party!"
@@ -27,8 +34,7 @@
         ></a-text>
       </a-marker>
       <!-- 카메라 설정 -->
-      <a-entity camera= zoom: 1.0; fov: 50; near: 0.1; far: 1000;"></a-entity>
+      <a-entity camera="fov: 80; near: 0.01; far: 50;"></a-entity>
     </a-scene>
   </body>
 </html>
-
